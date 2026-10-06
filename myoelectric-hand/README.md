@@ -11,6 +11,7 @@ The original STEP file held 5 components, and most of them were bare surfaces wi
 
 | Path | Contents |
 |---|---|
+| `solidworks/` | **For SolidWorks 2025:** 35 part STEP files, an instanced assembly STEP, and a macro that creates .SLDPRT and .SLDASM files. See `solidworks/README.md`. |
 | `cad/myoelectric_hand_complete.step` | Full assembly (60 parts, coloured, named). Open it in Fusion, SolidWorks or FreeCAD. |
 | `stl_print_ready/` | **Files to slice.** One STL per unique printed part, already laid flat. The quantity is in the file name (`finger_x4.stl` means print 4). |
 | `cad/parts_print_step_stl/` | Each printed part as STEP and STL, in assembly position. Use these for editing. |

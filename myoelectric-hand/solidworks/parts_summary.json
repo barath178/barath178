@@ -1,0 +1,307 @@
+[
+ {
+  "part": "Side Plate",
+  "qty": 2,
+  "kind": "print",
+  "from_": [
+   "side_plate_front",
+   "side_plate_back"
+  ]
+ },
+ {
+  "part": "Finger",
+  "qty": 4,
+  "kind": "print",
+  "from_": [
+   "finger_1",
+   "finger_2",
+   "finger_3",
+   "finger_4"
+  ]
+ },
+ {
+  "part": "Thumb",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "thumb"
+  ]
+ },
+ {
+  "part": "Thumb Rocker",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "thumb_rocker"
+  ]
+ },
+ {
+  "part": "HW N20 Gearmotor 6V",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "n20_gearmotor_6V_ref"
+  ]
+ },
+ {
+  "part": "Base Bracket with Motor Housing",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "base_bracket_with_motor_housing"
+  ]
+ },
+ {
+  "part": "Wrist Puck",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "wrist_puck"
+  ]
+ },
+ {
+  "part": "Finger Pivot Tube",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "finger_pivot_tube"
+  ]
+ },
+ {
+  "part": "Pivot Spacer 9.9",
+  "qty": 3,
+  "kind": "print",
+  "from_": [
+   "pivot_spacer_1",
+   "pivot_spacer_2",
+   "pivot_spacer_3"
+  ]
+ },
+ {
+  "part": "Pivot Spacer Front",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "pivot_spacer_front"
+  ]
+ },
+ {
+  "part": "Pivot Spacer Back",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "pivot_spacer_back"
+  ]
+ },
+ {
+  "part": "HW M3 Threaded Rod 52",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "finger_coupling_rod_M3_threaded_x52"
+  ]
+ },
+ {
+  "part": "Rod Spacer",
+  "qty": 3,
+  "kind": "print",
+  "from_": [
+   "rod_spacer_1",
+   "rod_spacer_2",
+   "rod_spacer_3"
+  ]
+ },
+ {
+  "part": "HW M3 Nut",
+  "qty": 3,
+  "kind": "hw",
+  "from_": [
+   "nut_M3_rod_front",
+   "nut_M3_rod_back",
+   "nut_M3_thumb_pivot"
+  ]
+ },
+ {
+  "part": "Crank Arm",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "crank_arm"
+  ]
+ },
+ {
+  "part": "Drive Link",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "drive_link"
+  ]
+ },
+ {
+  "part": "HW Pin D3x3.6",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "crank_pin_D3x4"
+  ]
+ },
+ {
+  "part": "HW M3x8 Socket Screw",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "screw_M3x8_pivot_front"
+  ]
+ },
+ {
+  "part": "HW M3x8 Socket Screw B",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "screw_M3x8_pivot_back"
+  ]
+ },
+ {
+  "part": "HW M3x14 Socket Screw",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "screw_M3x14_thumb_pivot"
+  ]
+ },
+ {
+  "part": "HW Thumb Pin D8x6",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "thumb_pin_D8x6"
+  ]
+ },
+ {
+  "part": "HW Release Pin D3x12",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "release_pin_D3x12"
+  ]
+ },
+ {
+  "part": "HW M2.5x8 Screw",
+  "qty": 4,
+  "kind": "hw",
+  "from_": [
+   "screw_M2.5x8_tab_front_1",
+   "screw_M2.5x8_tab_back_1",
+   "screw_M2.5x8_tab_front_2",
+   "screw_M2.5x8_tab_back_2"
+  ]
+ },
+ {
+  "part": "HW M2.5 Nut",
+  "qty": 4,
+  "kind": "hw",
+  "from_": [
+   "nut_M2.5_tab_front_1",
+   "nut_M2.5_tab_back_1",
+   "nut_M2.5_tab_front_2",
+   "nut_M2.5_tab_back_2"
+  ]
+ },
+ {
+  "part": "HW M3x8 Socket Screw C",
+  "qty": 4,
+  "kind": "hw",
+  "from_": [
+   "screw_M3x8_base_to_puck_1",
+   "screw_M3x8_base_to_puck_2",
+   "screw_M3x8_base_to_puck_3",
+   "screw_M3x8_base_to_puck_4"
+  ]
+ },
+ {
+  "part": "HW M1.6x4 Screw",
+  "qty": 2,
+  "kind": "hw",
+  "from_": [
+   "screw_M1.6x4_motor_1",
+   "screw_M1.6x4_motor_2"
+  ]
+ },
+ {
+  "part": "Forearm Socket",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "forearm_socket"
+  ]
+ },
+ {
+  "part": "HW MyoWare 2.0 EMG Sensor",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "emg_sensor_myoware2_ref"
+  ]
+ },
+ {
+  "part": "Electronics Enclosure",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "electronics_enclosure"
+  ]
+ },
+ {
+  "part": "Enclosure Lid",
+  "qty": 1,
+  "kind": "print",
+  "from_": [
+   "enclosure_lid"
+  ]
+ },
+ {
+  "part": "HW M3x10 Socket Screw",
+  "qty": 3,
+  "kind": "hw",
+  "from_": [
+   "screw_M3x10_socket_1",
+   "screw_M3x10_socket_2",
+   "screw_M3x10_socket_3"
+  ]
+ },
+ {
+  "part": "HW M2.5x8 Screw B",
+  "qty": 4,
+  "kind": "hw",
+  "from_": [
+   "screw_M2.5x8_lid_1",
+   "screw_M2.5x8_lid_2",
+   "screw_M2.5x8_lid_3",
+   "screw_M2.5x8_lid_4"
+  ]
+ },
+ {
+  "part": "HW Battery 2S LiPo 50x30x10",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "battery_2S_lipo_50x30x10_ref"
+  ]
+ },
+ {
+  "part": "HW Arduino Nano",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "arduino_nano_ref"
+  ]
+ },
+ {
+  "part": "HW DRV8833 Motor Driver",
+  "qty": 1,
+  "kind": "hw",
+  "from_": [
+   "motor_driver_drv8833_ref"
+  ]
+ }
+]

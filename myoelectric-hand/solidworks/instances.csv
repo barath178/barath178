@@ -1,0 +1,61 @@
+part_file,instance,r11,r12,r13,r21,r22,r23,r31,r32,r33,x_mm,y_mm,z_mm,type
+Side Plate,Side Plate-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Side Plate,Side Plate-2,1,0,0,0,1,0,0,0,1,0.000000,-55.000000,0.000000,printed
+Finger,Finger-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Finger,Finger-2,1,0,0,0,1,0,0,0,1,0.000000,-13.333333,0.000000,printed
+Finger,Finger-3,1,0,0,0,1,0,0,0,1,0.000000,-26.666667,0.000000,printed
+Finger,Finger-4,1,0,0,0,1,0,0,0,1,0.000000,-40.000000,0.000000,printed
+Thumb,Thumb-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Thumb Rocker,Thumb Rocker-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+HW N20 Gearmotor 6V,HW N20 Gearmotor 6V-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+Base Bracket with Motor Housing,Base Bracket with Motor Housing-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Wrist Puck,Wrist Puck-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Finger Pivot Tube,Finger Pivot Tube-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Pivot Spacer 9.9,Pivot Spacer 9.9-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Pivot Spacer 9.9,Pivot Spacer 9.9-2,1,0,0,0,1,0,0,0,1,0.000000,-13.333333,0.000000,printed
+Pivot Spacer 9.9,Pivot Spacer 9.9-3,1,0,0,0,1,0,0,0,1,0.000000,-26.666667,0.000000,printed
+Pivot Spacer Front,Pivot Spacer Front-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Pivot Spacer Back,Pivot Spacer Back-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+HW M3 Threaded Rod 52,HW M3 Threaded Rod 52-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+Rod Spacer,Rod Spacer-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Rod Spacer,Rod Spacer-2,1,0,0,0,1,0,0,0,1,0.000000,-13.333333,0.000000,printed
+Rod Spacer,Rod Spacer-3,1,0,0,0,1,0,0,0,1,0.000000,-26.666667,0.000000,printed
+HW M3 Nut,HW M3 Nut-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M3 Nut,HW M3 Nut-2,1,0,0,0,1,0,0,0,1,0.000000,-49.700000,0.000000,hardware
+HW M3 Nut,HW M3 Nut-3,1,0,0,0,1,0,0,0,1,33.740000,-2.200000,16.200000,hardware
+Crank Arm,Crank Arm-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Drive Link,Drive Link-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+HW Pin D3x3.6,HW Pin D3x3.6-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M3x8 Socket Screw,HW M3x8 Socket Screw-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M3x8 Socket Screw B,HW M3x8 Socket Screw B-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M3x14 Socket Screw,HW M3x14 Socket Screw-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW Thumb Pin D8x6,HW Thumb Pin D8x6-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW Release Pin D3x12,HW Release Pin D3x12-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M2.5x8 Screw,HW M2.5x8 Screw-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M2.5x8 Screw,HW M2.5x8 Screw-2,1,0,0,0,-1,0,0,0,-1,0.000000,-46.000000,39.800000,hardware
+HW M2.5x8 Screw,HW M2.5x8 Screw-3,1,0,0,0,1,0,0,0,1,18.000000,0.000000,0.000000,hardware
+HW M2.5x8 Screw,HW M2.5x8 Screw-4,1,0,0,0,-1,0,0,0,-1,18.000000,-46.000000,39.800000,hardware
+HW M2.5 Nut,HW M2.5 Nut-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M2.5 Nut,HW M2.5 Nut-2,1,0,0,0,1,0,0,0,1,0.000000,-44.000000,0.000000,hardware
+HW M2.5 Nut,HW M2.5 Nut-3,1,0,0,0,1,0,0,0,1,18.000000,0.000000,0.000000,hardware
+HW M2.5 Nut,HW M2.5 Nut-4,1,0,0,0,1,0,0,0,1,18.000000,-44.000000,0.000000,hardware
+HW M3x8 Socket Screw C,HW M3x8 Socket Screw C-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M3x8 Socket Screw C,HW M3x8 Socket Screw C-2,1,0,0,0,1,0,0,0,1,0.000000,-16.000000,0.000000,hardware
+HW M3x8 Socket Screw C,HW M3x8 Socket Screw C-3,1,0,0,0,1,0,0,0,1,-21.000000,-24.000000,0.000000,hardware
+HW M3x8 Socket Screw C,HW M3x8 Socket Screw C-4,1,0,0,0,1,0,0,0,1,-9.000000,-24.000000,0.000000,hardware
+HW M1.6x4 Screw,HW M1.6x4 Screw-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M1.6x4 Screw,HW M1.6x4 Screw-2,1,0,0,0,1,0,0,0,1,9.000000,0.000000,0.000000,hardware
+Forearm Socket,Forearm Socket-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+HW MyoWare 2.0 EMG Sensor,HW MyoWare 2.0 EMG Sensor-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+Electronics Enclosure,Electronics Enclosure-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+Enclosure Lid,Enclosure Lid-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,printed
+HW M3x10 Socket Screw,HW M3x10 Socket Screw-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M3x10 Socket Screw,HW M3x10 Socket Screw-2,1,0,0,0,1,0,0,0,1,-25.114737,0.000000,0.000000,hardware
+HW M3x10 Socket Screw,HW M3x10 Socket Screw-3,1,0,0,0,1,0,0,0,1,-12.557368,-21.750000,0.000000,hardware
+HW M2.5x8 Screw B,HW M2.5x8 Screw B-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW M2.5x8 Screw B,HW M2.5x8 Screw B-2,1,0,0,0,1,0,0,0,1,0.000000,34.000000,0.000000,hardware
+HW M2.5x8 Screw B,HW M2.5x8 Screw B-3,1,0,0,0,1,0,0,0,1,0.000000,0.000000,58.000000,hardware
+HW M2.5x8 Screw B,HW M2.5x8 Screw B-4,1,0,0,0,1,0,0,0,1,0.000000,34.000000,58.000000,hardware
+HW Battery 2S LiPo 50x30x10,HW Battery 2S LiPo 50x30x10-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW Arduino Nano,HW Arduino Nano-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
+HW DRV8833 Motor Driver,HW DRV8833 Motor Driver-1,1,0,0,0,1,0,0,0,1,0.000000,0.000000,0.000000,hardware
