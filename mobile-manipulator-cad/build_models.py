@@ -493,10 +493,13 @@ def robot_assembly(robot: Robot, q: dict, name=None):
     for link in robot.links:
         if not link.parts:
             continue
-        sub = cq.Assembly(name=link.name)
+        # prefix with the robot name: SolidWorks needs every component name in
+        # a file to be unique (both robots have a base_link)
+        comp = f"{robot.name}_{link.name}"
+        sub = cq.Assembly(name=comp)
         for p in link.parts:
             sub.add(p.shape, name=p.name, color=ccol(p.color))
-        asm.add(sub, name=link.name, loc=loc(T[link.name]))
+        asm.add(sub, name=comp, loc=loc(T[link.name]))
     return asm
 
 

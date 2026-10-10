@@ -57,11 +57,25 @@ If you later need the manufacturer's exact geometry:
 
 1. **File > Open**, set the file type to **STEP AP203/214/242 (\*.step; \*.stp)**.
 2. Open `solidworks/<robot>/<robot>_assembly.STEP`. It imports as an **assembly**. Each
-   top-level component is one URDF link (`base_link`, `shoulder_link`, `link1`, ...),
+   top-level component is one URDF link, prefixed with the robot name (`ur5_base_link`,
+   `ur5_shoulder_link`, `tb3_omx_link1`, ...),
    and the individual parts sit inside it.
 3. **File > Save As > .SLDASM**. Choose to save the components as external files, so every
    part becomes its own `.SLDPRT`.
 4. Any single part can also be opened on its own from `parts/*.STEP` and saved as `.SLDPRT`.
+
+**If the tree loads but the graphics area is empty:**
+
+1. Click in the graphics area and press **F** (Zoom to Fit). The cell is 3 m wide, so
+   the view may not be centred on it.
+2. If it is still empty, turn off 3D Interconnect: **Tools > Options > System Options >
+   Import**, select the **STEP** file format and untick **Enable 3D Interconnect**. Then
+   close the file without saving and open the `.STEP` again. SolidWorks now runs the full
+   STEP translator and builds real parts.
+3. Still empty? Open one part (for example `parts/ur5_forearm_tube.STEP`). If that shows,
+   the importer has a problem with the assembly levels. Open
+   `UR5_Fixed_Manipulator_assembly.STEP` or `TB3_OpenManipulatorX_assembly.STEP` before
+   the full cell file, because they have one level less.
 
 The assembly is in the **zero pose** (all joints = 0), the same pose as the URDF. Joint
 frames, used if you add mates or re-export with the SolidWorks URDF exporter (all in metres,
