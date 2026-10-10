@@ -1,0 +1,13 @@
+# kind;name;x;y;z  (metres, read by Build_SolidWorks_Files.bas)
+robot;UR5_Fixed_Manipulator;0;0;0
+robot;TB3_OpenManipulatorX;1.0;-0.9;0.0
+part;floor;0;0;0
+part;work_table;0;0;0
+part;payload_box_1;0;0;0
+part;payload_box_2;0;0;0
+part;payload_box_3;0;0;0
+part;payload_box_4;0;0;0
+part;drop_shelf;0;0;0
+part;obstacle_column;0;0;0
+part;obstacle_cabinet;0;0;0
+part;obstacle_crate;0;0;0

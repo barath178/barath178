@@ -1051,57 +1051,99 @@ def write_ros_package(robot: Robot):
 # ================================================================ SolidWorks (STEP) export
 
 
+def write_crlf(path: Path, lines):
+    """Windows line endings, so the SolidWorks VBA macro can read the file."""
+    path.write_bytes(("\r\n".join(lines) + "\r\n").encode())
+
+
 def write_solidworks(robot: Robot, folder_name: str):
+    """parts/*.STEP: one file per part, already placed where it sits in the robot
+    (all joints at 0), so a SolidWorks assembly only has to insert every part at
+    the origin. assembly_manifest.txt lists which URDF link each part belongs to;
+    Build_SolidWorks_Files.bas reads it to build native .SLDPRT/.SLDASM files."""
     folder = SW_OUT / folder_name
     if folder.exists():
         shutil.rmtree(folder)
     (folder / "parts").mkdir(parents=True)
+    T = fk(robot, {})
+    manifest = ["# link_subassembly;part_file  (read by Build_SolidWorks_Files.bas)"]
     n = 0
     for link in robot.links:
         for p in link.parts:
-            cq.exporters.export(p.shape, str(folder / "parts" / f"{p.name}.STEP"))
+            placed = cq.Compound.makeCompound(p.shape.vals()).moved(loc(T[link.name]))
+            cq.exporters.export(placed, str(folder / "parts" / f"{p.name}.STEP"))
+            manifest.append(f"{robot.name}_{link.name};{p.name}")
             n += 1
+    write_crlf(folder / "assembly_manifest.txt", manifest)
     robot_assembly(robot, {}, name=f"{folder_name}_assembly").export(
         str(folder / f"{folder_name}_assembly.STEP"))
     return n
 
 
-def cell_assembly(ur5: Robot, mm: Robot):
-    asm = cq.Assembly(name="Material_Handling_Cell")
-    asm.add(box(-1.2, 1.9, -1.4, 1.2, -0.010, 0.0), name="floor", color=ccol("floor"))
-    asm.add(robot_assembly(ur5, ur5.home, "UR5"), name="UR5")
-    x, y, z, yaw = SPAWN["tb3_omx"]
-    asm.add(robot_assembly(mm, mm.home, "TB3_OpenManipulatorX"), name="TB3_OpenManipulatorX",
-            loc=loc(tf((x, y, z), (0, 0, yaw))))
+def cell_objects():
+    """Static objects of the material-handling cell, in world coordinates."""
     tz = 0.72
     table = box(0.35, 0.95, -0.40, 0.40, tz - 0.03, tz)
     for lx in (0.38, 0.92):
         for ly in (-0.37, 0.37):
             table = table.union(box(lx - 0.02, lx + 0.02, ly - 0.02, ly + 0.02, 0, tz - 0.03))
-    asm.add(table, name="work_table", color=ccol("wood"))
-    for i, (bx, by, bz) in enumerate([(0.50, -0.20, tz), (0.62, 0.05, tz), (0.75, 0.22, tz), (1.15, -0.40, 0)]):
-        asm.add(box(bx - 0.03, bx + 0.03, by - 0.03, by + 0.03, bz, bz + 0.06),
-                name=f"payload_box_{i + 1}", color=ccol("cardboard"))
     shelf = box(1.30, 1.70, -0.25, 0.25, 0.20, 0.22)
     for lx in (1.31, 1.69):
         for ly in (-0.24, 0.24):
             shelf = shelf.union(box(lx - 0.01, lx + 0.01, ly - 0.01, ly + 0.01, 0, 0.20))
-    asm.add(shelf, name="drop_shelf", color=ccol("wood"))
-    asm.add(box(0.34, 0.46, 0.59, 0.71, 0, 1.0), name="obstacle_column", color=ccol("obstacle"))
-    asm.add(box(-1.0, -0.6, 0.6, 1.0, 0, 0.5), name="obstacle_cabinet", color=ccol("obstacle"))
-    asm.add(box(0.45, 0.75, -1.15, -0.85, 0, 0.3), name="obstacle_crate", color=ccol("obstacle"))
+    objs = [("floor", box(-1.2, 1.9, -1.4, 1.2, -0.010, 0.0), "floor"),
+            ("work_table", table, "wood")]
+    for i, (bx, by, bz) in enumerate([(0.50, -0.20, tz), (0.62, 0.05, tz), (0.75, 0.22, tz), (1.15, -0.40, 0)]):
+        objs.append((f"payload_box_{i + 1}",
+                     box(bx - 0.03, bx + 0.03, by - 0.03, by + 0.03, bz, bz + 0.06), "cardboard"))
+    objs += [("drop_shelf", shelf, "wood"),
+             ("obstacle_column", box(0.34, 0.46, 0.59, 0.71, 0, 1.0), "obstacle"),
+             ("obstacle_cabinet", box(-1.0, -0.6, 0.6, 1.0, 0, 0.5), "obstacle"),
+             ("obstacle_crate", box(0.45, 0.75, -1.15, -0.85, 0, 0.3), "obstacle")]
+    return objs
+
+
+ROBOT_FOLDERS = {"ur5": "UR5_Fixed_Manipulator", "tb3_omx": "TB3_OpenManipulatorX"}
+
+
+def cell_assembly(ur5: Robot, mm: Robot):
+    asm = cq.Assembly(name="Material_Handling_Cell")
+    for robot in (ur5, mm):
+        x, y, z, yaw = SPAWN[robot.name]
+        asm.add(robot_assembly(robot, robot.home, ROBOT_FOLDERS[robot.name]),
+                name=ROBOT_FOLDERS[robot.name], loc=loc(tf((x, y, z), (0, 0, yaw))))
+    for name, shape, color in cell_objects():
+        asm.add(shape, name=name, color=ccol(color))
     return asm
+
+
+def write_cell(ur5: Robot, mm: Robot):
+    folder = SW_OUT / "Material_Handling_Cell"
+    if folder.exists():
+        shutil.rmtree(folder)
+    (folder / "parts").mkdir(parents=True)
+    manifest = ["# kind;name;x;y;z  (metres, read by Build_SolidWorks_Files.bas)"]
+    for robot in (ur5, mm):
+        x, y, z, _ = SPAWN[robot.name]
+        manifest.append(f"robot;{ROBOT_FOLDERS[robot.name]};{x};{y};{z}")
+    for name, shape, _ in cell_objects():
+        cq.exporters.export(shape, str(folder / "parts" / f"{name}.STEP"))
+        manifest.append(f"part;{name};0;0;0")
+    write_crlf(folder / "assembly_manifest.txt", manifest)
+    cell_assembly(ur5, mm).export(str(folder / "Material_Handling_Cell_assembly.STEP"))
 
 
 def main():
     ur5, mm = build_ur5(), build_tb3_omx()
-    for robot, folder in ((ur5, "UR5_Fixed_Manipulator"), (mm, "TB3_OpenManipulatorX")):
+    for robot in (ur5, mm):
+        folder = ROBOT_FOLDERS[robot.name]
         n = write_solidworks(robot, folder)
         pkg = write_ros_package(robot)
         (pkg / "export.log").write_text(export_log(robot, n))
         print(f"{robot.title}: {n} parts -> {SW_OUT / folder}, ROS 2 package -> {pkg}")
-    cell_assembly(ur5, mm).export(str(SW_OUT / "Material_Handling_Cell_assembly.STEP"))
-    print("cell assembly written")
+    write_cell(ur5, mm)
+    shutil.copy(ROOT / "Build_SolidWorks_Files.bas", SW_OUT / "Build_SolidWorks_Files.bas")
+    print("cell assembly + SolidWorks macro written")
 
 
 if __name__ == "__main__":

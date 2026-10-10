@@ -17,13 +17,13 @@ CAD models and ROS 2 simulation packages for the two robots in this project:
 
 ```
 solidworks/                              <- open these in SolidWorks 2025
+  Build_SolidWorks_Files.bas             macro: builds native .SLDPRT/.SLDASM files
   UR5_Fixed_Manipulator/
-    parts/*.STEP                         22 separate parts
+    parts/*.STEP                         22 separate parts, each already in its assembled position
+    assembly_manifest.txt                which URDF link each part belongs to
     UR5_Fixed_Manipulator_assembly.STEP  full assembly
-  TB3_OpenManipulatorX/
-    parts/*.STEP                         36 separate parts
-    TB3_OpenManipulatorX_assembly.STEP   full assembly
-  Material_Handling_Cell_assembly.STEP   both robots + table, shelf, obstacles
+  TB3_OpenManipulatorX/                  same layout, 36 parts
+  Material_Handling_Cell/                table, shelf, boxes, obstacles + cell assembly
 
 ros2_ws/src/
   ur5_description/                       same layout as the SolidWorks-to-URDF exporter
@@ -55,27 +55,31 @@ If you later need the manufacturer's exact geometry:
 
 ## Opening in SolidWorks 2025
 
-1. **File > Open**, set the file type to **STEP AP203/214/242 (\*.step; \*.stp)**.
-2. Open `solidworks/<robot>/<robot>_assembly.STEP`. It imports as an **assembly**. Each
-   top-level component is one URDF link, prefixed with the robot name (`ur5_base_link`,
-   `ur5_shoulder_link`, `tb3_omx_link1`, ...),
-   and the individual parts sit inside it.
-3. **File > Save As > .SLDASM**. Choose to save the components as external files, so every
-   part becomes its own `.SLDPRT`.
-4. Any single part can also be opened on its own from `parts/*.STEP` and saved as `.SLDPRT`.
+**Recommended: build native SolidWorks files with the macro.** This doesn't use the STEP
+assembly importer, which showed an empty screen on one PC.
 
-**If the tree loads but the graphics area is empty:**
+1. Unzip to a short path without spaces, for example `C:\MM_Project\`.
+2. In SolidWorks: **Tools > Macro > New...** and save it as `Build_SolidWorks_Files.swp`
+   inside the `solidworks` folder. The VBA editor opens.
+3. Delete the code in the editor, paste all of `solidworks/Build_SolidWorks_Files.bas`
+   and press **F5**.
+4. Confirm the folder and wait. If SolidWorks asks to run Import Diagnostics, click **No**.
 
-1. Click in the graphics area and press **F** (Zoom to Fit). The cell is 3 m wide, so
-   the view may not be centred on it.
-2. If it is still empty, turn off 3D Interconnect: **Tools > Options > System Options >
-   Import**, select the **STEP** file format and untick **Enable 3D Interconnect**. Then
-   close the file without saving and open the `.STEP` again. SolidWorks now runs the full
-   STEP translator and builds real parts.
-3. Still empty? Open one part (for example `parts/ur5_forearm_tube.STEP`). If that shows,
-   the importer has a problem with the assembly levels. Open
-   `UR5_Fixed_Manipulator_assembly.STEP` or `TB3_OpenManipulatorX_assembly.STEP` before
-   the full cell file, because they have one level less.
+The macro converts every part to `.SLDPRT`, builds one sub-assembly per URDF link
+(`ur5_shoulder_link.SLDASM`, `tb3_omx_link1.SLDASM`, ...) and one `.SLDASM` per robot, plus
+`Material_Handling_Cell.SLDASM`. Everything goes into a `native` folder next to each
+robot's `parts` folder, with components fixed in place. It needs the default references
+of a new macro (SOLIDWORKS Type Library and Constant type library) and a default assembly
+template (Tools > Options > Default Templates).
+
+**Opening the STEP files directly:** use **File > Open**, file type **STEP**, then
+**Save As .SLDASM**. If the tree loads but the graphics area is empty:
+
+1. Click in the graphics area and press **F** (Zoom to Fit).
+2. Turn off 3D Interconnect: **Tools > Options > System Options > Import**, file format
+   **STEP**, untick **Enable 3D Interconnect**. Close the file without saving and open it again.
+3. Open a single part (for example `parts/ur5_forearm_tube.STEP`). If the part shows but
+   the assembly doesn't, use the macro above.
 
 The assembly is in the **zero pose** (all joints = 0), the same pose as the URDF. Joint
 frames, used if you add mates or re-export with the SolidWorks URDF exporter (all in metres,
