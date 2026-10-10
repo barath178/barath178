@@ -1,0 +1,39 @@
+CAD -> URDF export log : TurtleBot3 Waffle Pi + OpenMANIPULATOR-X mobile manipulator
+robot name     : tb3_omx
+ROS 2 package  : tb3_omx_description
+parts exported : 36 STEP files
+
+LINKS
+  base_footprint           (frame only, no geometry)
+  base_link                mass   1.3729 kg  com (-0.0540003 0 0.0415757)  mesh meshes/base_link.STL  parts: waffle_plate_bottom, waffle_plate_middle, waffle_plate_top, standoffs_x4, wheel_motor_left_xm430, wheel_motor_right_xm430, lipo_battery, opencr_board, raspberry_pi
+  wheel_left_link          mass   0.0285 kg  com (0 0 0)  mesh meshes/wheel_left_link.STL  parts: tire_left, wheel_hub_left
+  wheel_right_link         mass   0.0285 kg  com (0 0 0)  mesh meshes/wheel_right_link.STL  parts: tire_right, wheel_hub_right
+  caster_back_left_link    mass   0.0050 kg  com (0 0 0.00105882)  mesh meshes/caster_back_left_link.STL  parts: ball_caster_holder_left, ball_caster_ball_left
+  caster_back_right_link   mass   0.0050 kg  com (0 0 0.00105882)  mesh meshes/caster_back_right_link.STL  parts: ball_caster_holder_right, ball_caster_ball_right
+  base_scan                mass   0.1140 kg  com (0.000489081 0 -0.0111291)  mesh meshes/base_scan.STL  parts: lds01_body, lds01_turret
+  camera_link              mass   0.0050 kg  com (0 0 0)  mesh meshes/camera_link.STL  parts: raspberry_pi_camera
+  link1                    mass   0.0790 kg  com (0.00314508 0 0.0129189)  mesh meshes/link1.STL  parts: omx_base_plate, omx_joint1_xm430
+  link2                    mass   0.0980 kg  com (0 0.000299939 0.0356827)  mesh meshes/link2.STL  parts: omx_link2_bracket, omx_joint2_xm430
+  link3                    mass   0.1380 kg  com (0.0201929 0.000311785 0.099705)  mesh meshes/link3.STL  parts: omx_link3_plate_left, omx_link3_plate_right, omx_joint3_xm430
+  link4                    mass   0.1330 kg  com (0.0968009 0.000315974 0)  mesh meshes/link4.STL  parts: omx_link4_plate_left, omx_link4_plate_right, omx_joint4_xm430
+  link5                    mass   0.1430 kg  com (0.0473048 0 0)  mesh meshes/link5.STL  parts: omx_link5_plate_left, omx_link5_plate_right, omx_gripper_xm430, omx_gripper_rail
+  gripper_left_link        mass   0.0100 kg  com (0.0163 -0.005 0)  mesh meshes/gripper_left_link.STL  parts: omx_finger_left
+  gripper_right_link       mass   0.0100 kg  com (0.0163 0.005 0)  mesh meshes/gripper_right_link.STL  parts: omx_finger_right
+  end_effector_link        (frame only, no geometry)
+
+JOINTS
+  base_joint               fixed      base_footprint -> base_link  xyz (0 0 0.01) rpy (0 0 0) axis (0 0 1)
+  wheel_left_joint         continuous base_link -> wheel_left_link  xyz (0 0.144 0.023) rpy (0 0 0) axis (0 1 0)
+  wheel_right_joint        continuous base_link -> wheel_right_link  xyz (0 -0.144 0.023) rpy (0 0 0) axis (0 1 0)
+  caster_back_left_joint   fixed      base_link -> caster_back_left_link  xyz (-0.177 0.064 -0.004) rpy (0 0 0) axis (0 0 1)
+  caster_back_right_joint  fixed      base_link -> caster_back_right_link  xyz (-0.177 -0.064 -0.004) rpy (0 0 0) axis (0 0 1)
+  scan_joint               fixed      base_link -> base_scan  xyz (0.034 0 0.122) rpy (0 0 0) axis (0 0 1)
+  camera_joint             fixed      base_link -> camera_link  xyz (0.073 0 0.08) rpy (0 0 0) axis (0 0 1)
+  omx_mount_joint          fixed      base_link -> link1  xyz (-0.092 0 0.094) rpy (0 0 0) axis (0 0 1)
+  joint1                   revolute   link1 -> link2  xyz (0.012 0 0.034) rpy (0 0 0) axis (0 0 1)  limits [-2.83, 2.83]
+  joint2                   revolute   link2 -> link3  xyz (0 0 0.0595) rpy (0 0 0) axis (0 1 0)  limits [-1.79, 1.57]
+  joint3                   revolute   link3 -> link4  xyz (0.024 0 0.128) rpy (0 0 0) axis (0 1 0)  limits [-0.94, 1.38]
+  joint4                   revolute   link4 -> link5  xyz (0.124 0 0) rpy (0 0 0) axis (0 1 0)  limits [-1.79, 2.04]
+  gripper_left_joint       prismatic  link5 -> gripper_left_link  xyz (0.0817 0.021 0) rpy (0 0 0) axis (0 1 0)  limits [-0.01, 0.019]
+  gripper_right_joint      prismatic  link5 -> gripper_right_link  xyz (0.0817 -0.021 0) rpy (0 0 0) axis (0 -1 0)  limits [-0.01, 0.019]
+  end_effector_joint       fixed      link5 -> end_effector_link  xyz (0.126 0 0) rpy (0 0 0) axis (0 0 1)
